@@ -1,14 +1,14 @@
 package pack4;
 
-import pack3.con;
+import pack3.ConExample;
 
 public class Demo {
     static void main(String[] args) {
 
-        con c1 = new con();
+        ConExample c1 = new ConExample();
 
-        con c2 = new con("Harsh");
+        ConExample c2 = new ConExample("Harsh");
 
-        con c3 = new con(10, 20);
+        ConExample c3 = new ConExample(10, 20);
     }
 }
