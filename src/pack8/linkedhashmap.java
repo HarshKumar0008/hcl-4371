@@ -1,10 +1,7 @@
 
 
 package pack8;
-
-
 import java.util.*;
-
 public class linkedhashmap {
     public static void main(String[] args) {
         Map<Integer, String> m = new LinkedHashMap<>();
