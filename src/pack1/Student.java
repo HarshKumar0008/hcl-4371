@@ -15,3 +15,15 @@ public class Student extends Faculty {
         student.m1();   // ✅ protected access
     }
 }
+
+//it should contain folder structure like this
+//assignment/
+//    readme.md
+//            .gitignore
+//    src/com/hcl/library
+//Main.java
+//model/
+//exception/
+//repository/
+//service/
+//util/
