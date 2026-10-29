@@ -1,27 +1,30 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Dashboard from './Dashboard'
+
+import { useNavigate } from 'react-router-dom'
 function Login() {
-  const [emp_id, setEmpId] = useState('')
+  const [empId, setEmpId] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-
-  async function loginform(e) {
+  const navigate=useNavigate();
+  async function loginform(e){
     try {
       e.preventDefault();
       const server = await fetch("http://localhost:8080/v1/user/login", {
         method: 'Post',
-        body: JSON.stringify({ emp_id: Number(emp_id), email, password }),
+        body: JSON.stringify({ empId: Number(empId), email, password }),
         headers: { "Content-Type": "application/json" }
       });
-      const status = await server.text();
-      
-      alert(status)
-      if (status.ok()) {
-        <Dashboard />
+  
+      if (server.ok) {
+         const employee=await server.json();
+         alert("Login SuccessFul")
+         navigate('/dashboard',{state:
+          {employee:employee}
+         });
       }
       else {
-        <h1>Unsuccess</h1>
+        alert("Please Login first");
       }
     }
     catch (error) {

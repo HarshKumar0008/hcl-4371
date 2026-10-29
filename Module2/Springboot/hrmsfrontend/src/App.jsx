@@ -23,24 +23,12 @@ function App() {
 
   return (
     <>
-    {/* <Navbar/>
-      <h2>Welcome to HRMS</h2> */}
-     {/* {
-      employee.map(ele=>
-        <h3>
-        <SampleCode empdata={ele}/>
-        <br />
-        </h3>
-      )
-     } 
-     <SampleCode/> 
-      <UseFetchApi/> */}
       <BrowserRouter>
+       <Navbar/>
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Registration/>}/>
-         <Route path="/login" element={<Login/>}/>
          <Route path="/dashboard" element={<Dashboard/>}/>
        </Routes>
       </BrowserRouter>

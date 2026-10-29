@@ -1,12 +1,13 @@
 package com.abes.hrmsdatabase.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "emp_id")
     private Long empId;
     private String emp_name;
     private String email;
@@ -15,7 +16,6 @@ public class Employee {
     private String password;
     public Employee(){
     }
-
     public Employee(Long empId, String emp_name, String email, String stack, String designation, String password) {
         this.empId = empId;
         this.emp_name = emp_name;
@@ -25,11 +25,11 @@ public class Employee {
         this.password = password;
     }
 
-    public long getEmpId() {
+    public Long getEmpId() {
         return empId;
     }
 
-    public void setEmpId(long empId) {
+    public void setEmpId(Long empId) {
         this.empId = empId;
     }
 

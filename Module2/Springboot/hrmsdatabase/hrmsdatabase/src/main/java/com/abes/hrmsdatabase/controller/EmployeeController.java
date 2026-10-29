@@ -21,7 +21,10 @@ public class EmployeeController {
         return employeeService.createNewEmployee(employee);
     }
     @PostMapping("/login")
-    public String login(@RequestBody Employee emp){
+    public Employee login(@RequestBody Employee emp){
+//        if (emp.getEmpId() == null) {
+//            return "Employee ID is missing";
+//        }
         return employeeService.login(emp.getEmpId(), emp.getEmail(), emp.getPassword());
     }
 

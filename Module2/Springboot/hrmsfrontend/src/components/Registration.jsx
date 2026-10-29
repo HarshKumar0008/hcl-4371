@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Registration() {
-  const [emp_id, setEmpId] = useState('')
   const [emp_name, setEmpName] = useState('')
   const [email, setEmail] = useState('')
   const [designation, setDesignation] = useState('')
@@ -14,7 +13,7 @@ function Registration() {
       e.preventDefault();
       const server = await fetch("http://localhost:8080/v1/user/addNewEmployee", {
         method: 'Post',
-        body: JSON.stringify({ emp_id: Number(emp_id), emp_name, email, designation, stack, password }),
+        body: JSON.stringify({  emp_name, email, designation, stack, password }),
         headers: { "Content-Type": "application/json" }
       });
       const status = await server.text();
@@ -30,10 +29,7 @@ function Registration() {
       <div>Registration From</div>
 
       <form onSubmit={sendData}>
-        <div className="form-group">
-          <label htmlFor="emp_id">Emp ID</label>
-          <input type="number" onChange={(e) => setEmpId(e.target.value)} className="form-control" id="emp_id" placeholder="Enter emp id" required />
-        </div>
+      
 
         <div className="form-group">
           <label htmlFor="emp_name">Name</label>
